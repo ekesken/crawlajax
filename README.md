@@ -25,7 +25,7 @@ you can use an apache server now to serve your static snapshots by forwarding
 requests with _escaped_fragment_ parameter to this folder.
 
 <code>
-http://2011.jsconf.us/?_escaped_fragment_=/schedule => http://2011.jsconf.us/?_escaped_fragment_=/schedule/index.html
+http://2011.jsconf.us/?_escaped_fragment_=/schedule => http://2011.jsconf.us/googlebot/schedule/index.html
 </code>
 
 using [phantomjs](http://www.phantomjs.org/) to take snapshot of rendered dom.
