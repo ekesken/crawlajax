@@ -10,7 +10,7 @@ sample usage:
 
 this command create following folder structure and files
 
-<code>
+<pre>
 |- www
  \|- schedule
   |\|- index.html
@@ -19,7 +19,7 @@ this command create following folder structure and files
   |- speakers
   |\|- index.html
   ...
-</code>
+</pre>
 
 you can use an apache server now to serve your static snapshots by forwarding
 requests with _escaped_fragment_ parameter to this folder.
