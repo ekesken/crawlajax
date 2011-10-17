@@ -7,9 +7,9 @@ creating a html snapshot of your site for googlebot by walking through hashbang 
 
 sample usage:
 
-<code>
+<pre>
 ./crawlajax.py 'http://2011.jsconf.us/#!/schedule'
-</code>
+</pre>
 
 this command create following folder structure and files
 
@@ -36,7 +36,7 @@ dom. you can change snapshot command via construction parameter snapshot_cmd.
 
 check instructions at
 
-http://code.google.com/web/ajaxcrawling/docs/getting-started.html
+* http://code.google.com/web/ajaxcrawling/docs/getting-started.html
 
 for making ajax applications crawlable.
 
@@ -50,10 +50,12 @@ INSTALLATION
 ============
 
 dependencies:
+
 * python-2.6.6
 * phantomjs-1.3.0
 
 see instructions to build and install phantomjs:
+
 * http://code.google.com/p/phantomjs/wiki/BuildInstructions
 * http://code.google.com/p/phantomjs/wiki/Installation
 
