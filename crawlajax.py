@@ -10,10 +10,10 @@ logging.basicConfig(format='[%(asctime)s][%(levelname)s] %(message)s', level=log
 
 class CrawlAjax:
 
-    def __init__(self, webfolder = "www", testmode = False):
+    def __init__(self, snapshot_cmd="phantomjs phantomjs/snapshot.js '%s'", webfolder = "www"):
         self.domain = None
+        self.snapshot_cmd = snapshot_cmd
         self.webfolder = webfolder
-        self.testmode = testmode
 
     def snapshot(self, newURLs, fetchedURLFragments = []):
         if newURLs is None or len(newURLs) == 0:
@@ -40,10 +40,7 @@ class CrawlAjax:
             newURL = "http://" + self.domain + "#!" + newURLFragment
             logging.info("fetching URL-'%s'" % (newURL))
             fetchedURLFragments.append(newURLFragment)
-            if self.testmode == True:
-                response = newURLFragment
-            else:
-                response = os.popen("phantomjs phantomjs/snapshot.js '%s'" % (newURL)).read()
+            response = os.popen(self.snapshot_cmd % (newURL)).read()
             self.saveResponse(newURLFragment, response)
             foundURLs = self.extractHrefsFromHTML(response)
             self.snapshot(foundURLs, fetchedURLFragments)

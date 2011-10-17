@@ -9,7 +9,7 @@ from crawlajax import CrawlAjax
 class CrawlAjaxTest(unittest.TestCase):
 
     def setUp(self):
-        self.instance = CrawlAjax(webfolder="testwww", testmode=True)
+        self.instance = CrawlAjax(webfolder="testwww", snapshot_cmd="echo %s")
         os.path.isdir("testwww") and shutil.rmtree("testwww")
 
     def tearDown(self):
