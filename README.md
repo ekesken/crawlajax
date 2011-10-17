@@ -27,9 +27,9 @@ this command create following folder structure and files
 you can use an apache server now to serve your static html snapshots by forwarding
 requests with _escaped_fragment_ parameter to this folder.
 
-<code>
+<pre>
 http://2011.jsconf.us/?_escaped_fragment_=/schedule => http://2011.jsconf.us/googlebot/schedule/index.html
-</code>
+</pre>
 
 using [phantomjs](http://www.phantomjs.org/) to take html snapshot of rendered
 dom. you can change snapshot command via construction parameter snapshot_cmd.
@@ -50,12 +50,12 @@ INSTALLATION
 ============
 
 dependencies:
-python-2.6.6
-phantomjs-1.3.0
+* python-2.6.6
+* phantomjs-1.3.0
 
 see instructions to build and install phantomjs:
-http://code.google.com/p/phantomjs/wiki/BuildInstructions
-http://code.google.com/p/phantomjs/wiki/Installation
+* http://code.google.com/p/phantomjs/wiki/BuildInstructions
+* http://code.google.com/p/phantomjs/wiki/Installation
 
 TEST
 ====
