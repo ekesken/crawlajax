@@ -1,4 +1,19 @@
 #!/usr/bin/python
+
+"""
+This program is free software: you can redistribute it and/or modify it under
+the terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+This program is distributed in the hope that it will be useful, but WITHOUT ANY
+WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.  See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+this program.  If not, see <http://www.gnu.org/licenses/>.
+"""
+
 import sys
 import os
 import re
@@ -9,6 +24,9 @@ from urlparse import urlparse
 logging.basicConfig(format='[%(asctime)s][%(levelname)s] %(message)s', level=logging.INFO)
 
 class CrawlAjax:
+    """
+    creating a html snapshot of your site for googlebot by walking through hashbang links.
+    """
 
     def __init__(self, snapshot_cmd="phantomjs phantomjs/snapshot.js '%s'", webfolder = "www"):
         self.domain = None
@@ -16,9 +34,10 @@ class CrawlAjax:
         self.webfolder = webfolder
 
     def snapshot(self, newURLs, fetchedURLFragments = []):
+        """ main method that crawls and saves html snapshots by recursive calls """
         if newURLs is None or len(newURLs) == 0:
             return 0
-        fetchedURLFragments = fetchedURLFragments[:]
+        fetchedURLFragments = fetchedURLFragments[:] # needed to clone solve reference problems
         # logging.debug("URLs: %s, fetchedURLFragments: %s" % (newURLs, fetchedURLFragments))
         processedURLCount = 0
         if len(newURLs) == 0:
@@ -48,12 +67,13 @@ class CrawlAjax:
         return processedURLCount
 
     def extractHrefsFromHTML(self, response):
+        """ collects all hrefs to an array without any modification """
         foundURLs = re.findall("href=['\"]([^'\"]*)['\"]", response)
         logging.debug("extracted %d URL" % (len(foundURLs)))
-        # return [urlparse(foundURL).fragment[1:] for foundURL in foundURLs if foundURL.find("#!") != -1] # strips ! character from fragment
         return foundURLs
 
     def saveResponse(self, urlFragment, response):
+        """ saves response of url to a path generated according to urlFragment """
         (folderpath, filename) = self.pathFromURLFragment(urlFragment)
         not os.path.isdir(folderpath) and os.makedirs(folderpath)
         f = open(folderpath + "/" + filename, "w")
@@ -63,6 +83,7 @@ class CrawlAjax:
         return True
 
     def pathFromURLFragment(self, urlFragment):
+        """ generates a folder path and file name for url fragment given """
         return (self.webfolder + "/" + urlFragment, "index.html")
 
 if __name__ == '__main__':
