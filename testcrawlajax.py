@@ -3,17 +3,17 @@
 import unittest
 import os
 import shutil
-from crawlshot import CrawlShot
+from crawlajax import CrawlAjax
 
 
-class CrawlShotTest(unittest.TestCase):
+class CrawlAjaxTest(unittest.TestCase):
 
     def setUp(self):
-        self.instance = CrawlShot(webfolder="testwww", testmode=True)
+        self.instance = CrawlAjax(webfolder="testwww", testmode=True)
         os.path.isdir("testwww") and shutil.rmtree("testwww")
 
     def tearDown(self):
-        self.instance = CrawlShot("testwww")
+        self.instance = CrawlAjax("testwww")
         os.path.isdir("testwww") and shutil.rmtree("testwww")
 
     def testSnapshot(self):

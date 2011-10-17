@@ -5,10 +5,10 @@ import re
 import logging
 from urlparse import urlparse
 
-# logging.basicConfig(format='[%(asctime)s][%(levelname)s] %(message)s', filename='crawlshot.log', level=logging.DEBUG)
+# logging.basicConfig(format='[%(asctime)s][%(levelname)s] %(message)s', filename='crawlajax.log', level=logging.DEBUG)
 logging.basicConfig(format='[%(asctime)s][%(levelname)s] %(message)s', level=logging.INFO)
 
-class CrawlShot:
+class CrawlAjax:
 
     def __init__(self, webfolder = "www", testmode = False):
         self.domain = None
@@ -70,6 +70,6 @@ class CrawlShot:
 
 if __name__ == '__main__':
     URLs = sys.argv[1:]
-    cs = CrawlShot()
+    cs = CrawlAjax()
     cs.snapshot(URLs)
 

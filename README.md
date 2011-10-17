@@ -5,7 +5,7 @@ creating a snapshot of your site for googlebot by walking through hashbang links
 sample usage:
 
 <code>
-./crawlshot.py 'http://2011.jsconf.us/#!/schedule'
+./crawlajax.py 'http://2011.jsconf.us/#!/schedule'
 </code>
 
 this command create following folder structure and files
