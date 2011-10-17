@@ -1,5 +1,5 @@
-CRAWLAJAX
-=========
+ABOUT
+=====
 
 a crawler for ajax applications using hashbang urls.
 
@@ -31,7 +31,8 @@ requests with _escaped_fragment_ parameter to this folder.
 http://2011.jsconf.us/?_escaped_fragment_=/schedule => http://2011.jsconf.us/googlebot/schedule/index.html
 </code>
 
-using [phantomjs](http://www.phantomjs.org/) to take html snapshot of rendered dom.
+using [phantomjs](http://www.phantomjs.org/) to take html snapshot of rendered
+dom. you can change snapshot command via construction parameter snapshot_cmd.
 
 check instructions at
 
@@ -44,9 +45,6 @@ problems, so we chose this way.
 
 project satisfies only our applications requirements for now, you're free to
 fork and enrich it according to your needs.
-
-you can change snap
-
 
 INSTALLATION
 ============
