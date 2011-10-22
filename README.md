@@ -11,7 +11,7 @@ sample usage:
 ./crawlajax.py 'http://2011.jsconf.us/#!/schedule'
 </pre>
 
-this command create following folder structure and files
+this command creates following folder structure and files:
 
 <pre>
 |- www
@@ -24,8 +24,9 @@ this command create following folder structure and files
   ...
 </pre>
 
-you can use an apache server now to serve your static html snapshots by forwarding
-requests with _escaped_fragment_ parameter to this folder.
+you can use any web server you preferred now to serve your static html
+snapshots by forwarding requests with _escaped_fragment_ parameter to this
+folder.
 
 <pre>
 http://2011.jsconf.us/?_escaped_fragment_=/schedule => http://2011.jsconf.us/googlebot/schedule/index.html
@@ -34,11 +35,9 @@ http://2011.jsconf.us/?_escaped_fragment_=/schedule => http://2011.jsconf.us/goo
 using [phantomjs](http://www.phantomjs.org/) to take html snapshot of rendered
 dom. you can change snapshot command via construction parameter snapshot_cmd.
 
-check instructions at
+for making ajax applications crawlable, check instructions at:
 
 * http://code.google.com/web/ajaxcrawling/docs/getting-started.html
-
-for making ajax applications crawlable.
 
 we tried using htmlunit as google suggests at first, but we had performance
 problems, so we chose this way.
